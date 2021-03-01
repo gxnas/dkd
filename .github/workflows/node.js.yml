@@ -6,7 +6,7 @@ on:
         branches:
             - main
     schedule:
-        - cron: '15 * * * *'
+        - cron: '10 * * * *'
     watch:
       types: [started]
 
@@ -32,4 +32,4 @@ jobs:
             - name: Delete workflow runs
               uses: GitRML/delete-workflow-runs@main
               with:
-                 keep_minimum_runs: 10
+                 retain_days: 3
