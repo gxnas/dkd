@@ -15,21 +15,21 @@ jobs:
         runs-on: ubuntu-20.04
  
         steps:
-            - name: Checkout codes
+            - name: 取出代码
               uses: actions/checkout@v2
-            - name: Use Node.js
+            - name: 检查环境
               uses: actions/setup-node@v1
               with:
                 node-version: '12.x'
-            - name: Run
+            - name: 正在安装环境
               run: npm install
-            - run: node dkd_coin.js
+            - run: 脚本执行中
               env:
                 dkdurl: ${{ secrets.dkdurl }}
                 dkdbody: ${{ secrets.dkdbody }}
                 sckey: ${{ secrets.sckey }}
                 dkdhd: ${{ secrets.dkdhd }}
-            - name: Delete workflow runs
+            - name: 删除过期任务
               uses: GitRML/delete-workflow-runs@main
               with:
                  retain_days: 3
