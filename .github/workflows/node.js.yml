@@ -29,7 +29,12 @@ jobs:
                 dkdbody: ${{ secrets.dkdbody }}
                 sckey: ${{ secrets.sckey }}
                 dkdhd: ${{ secrets.dkdhd }}
-            - name: delete-workflow
-              uses: GitRML/delete-workflow-runs@main
+
+            - name: 删除7天以外的workflow流程
+              uses: Mattraks/delete-workflow-runs@main
               with:
-                 retain_days: 3
+                token: ${{ github.token }}
+                repository: ${{ github.repository }} 
+                #保留7天不删除
+                retain_days: 7
+                keep_minimum_runs: 0
